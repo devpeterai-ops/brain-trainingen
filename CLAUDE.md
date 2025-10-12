@@ -72,10 +72,13 @@ Three independent game components in `/components`:
 
 ## Styling Approach
 
-- Tailwind CSS via CDN (inline styles in components)
+- **Tailwind CSS v4**: Installed via `tailwindcss` and `@tailwindcss/vite` packages
+- **CSS Entry**: `index.css` with `@import "tailwindcss"` imported in `index.tsx`
+- **Vite Plugin**: `@tailwindcss/vite` plugin configured in `vite.config.js`
 - Custom animations defined with `<style jsx>` blocks (fadeIn, shake)
 - Color system: Swedish color names with Tailwind utility classes
 - Dark theme: slate-900 background, slate-800 cards, cyan-400 accents
+- Google Fonts: Inter font family loaded via CDN
 
 ## Deployment Configuration
 
@@ -87,12 +90,13 @@ Three independent game components in `/components`:
 
 - Strict mode enabled with comprehensive linting rules
 - Bundler module resolution for Vite compatibility
-- Source files expected in `/src` but currently in root (tsconfig may need adjustment)
+- Source files in project root, tsconfig `include` set to `["."]`
 - React 19 JSX transform enabled
 
 ## Known Quirks
 
-- Source files are in project root, not `/src` directory (tsconfig.json references `/src` but isn't enforced)
+- Source files are in project root, not `/src` directory
 - No test framework configured
 - Swedish language hardcoded in color names and UI text
 - Yellow color requires special handling in styles due to Tailwind's `-400` variant
+- If deploy fails with "non-fast-forward" error, use: `git push origin $(git subtree split --prefix dist):gh-pages --force`
