@@ -1,0 +1,5 @@
+{
+  "name": "Hjärngympa",
+  "description": "En enkel och användarvänlig hjärnträningsapp med två övningar: Färgord (Stroop-effekten) och Sifferjakt (Schulte-tabell) för att förbättra kognitiv flexibilitet och uppmärksamhet.",
+  "requestFramePermissions": []
+}
