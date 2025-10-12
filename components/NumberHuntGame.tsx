@@ -70,17 +70,17 @@ const NumberHuntGame: React.FC<NumberHuntGameProps> = ({ onGameOver }) => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-slate-900 p-4">
-      <header className="flex justify-between items-center text-slate-300 p-4 rounded-xl bg-slate-800 mb-4">
+    <div className="h-screen bg-slate-900 p-4 flex flex-col">
+      <header className="flex justify-between items-center text-slate-300 p-4 rounded-xl bg-slate-800 mb-4 flex-shrink-0">
         <div className="text-xl font-bold">Hitta: <span className="text-cyan-400 text-3xl">{currentNumber}</span></div>
         <div className="flex items-center space-x-2 text-3xl font-bold text-cyan-400">
             <ClockIcon className="w-7 h-7 text-slate-300" />
             <span>{formatTime(elapsedTime)}</span>
         </div>
       </header>
-      
-      <main className="flex-grow flex items-center justify-center">
-        <div className={`grid grid-cols-${gridSize} gap-2 w-full max-w-md aspect-square`}>
+
+      <main className="flex-1 flex items-center justify-center min-h-0">
+        <div className="grid grid-cols-5 gap-2 w-full max-w-md aspect-square">
           {numbers.map((num) => {
             const isClicked = num < currentNumber;
             return (
@@ -88,8 +88,8 @@ const NumberHuntGame: React.FC<NumberHuntGameProps> = ({ onGameOver }) => {
                 key={num}
                 onClick={() => handleNumberClick(num)}
                 className={`flex items-center justify-center text-2xl font-bold rounded-lg transition-all duration-300
-                  ${isClicked 
-                    ? 'bg-slate-700 text-slate-500 scale-95' 
+                  ${isClicked
+                    ? 'bg-slate-700 text-slate-500 scale-95'
                     : 'bg-indigo-600 text-white hover:bg-indigo-500 transform hover:scale-105'
                   }`}
               >
